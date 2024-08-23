@@ -1,6 +1,6 @@
+import static java.lang.Integer.valueOf;
 import java.util.InputMismatchException;
 import java.util.Scanner;
-
 import utils.InputUtils;
 import utils.ValidationUtils;
 
@@ -13,7 +13,7 @@ public class ContaPoupanca {
         System.out.println("2. Número da Agência");
         System.out.println("3. Nome do Cliente");
         System.out.println("4. Saldo para análise");
-        System.out.println("5. Para finalizar o cadastro.");
+        System.out.println("5. Para finalizar o cadastro.\n");
     }
 
 
@@ -36,9 +36,9 @@ public class ContaPoupanca {
             switch(choice) {
                 case 1 -> {
                     try {
-                        numberAcc = Integer.valueOf(InputUtils.getInput(scanner, "Digite o número da sua conta corrente: "));
+                        numberAcc = valueOf(InputUtils.getInput(scanner, "Digite o número da sua conta corrente: "));
                     } catch (NumberFormatException e) {
-                        InputUtils.providedData("Inteiro");
+                        InputUtils.providedData("Inteiro, sem símbolos");
                     }
                 }
                 case 2 -> { 
@@ -75,6 +75,12 @@ public class ContaPoupanca {
                         running = false;
                     } else {
                         System.out.println("Todos os campos devem ser preenchidos antes de finalizar o cadastro.");
+                        System.out.println(
+                            "Conta: " + numberAcc + "\n" +
+                            "Agência: " + agency + "\n" +
+                            "Nome Completo: " + name + "\n" +
+                            "Saldo depositado: " + balance
+                            );
                     }
                 }
                 default -> System.out.println("Esta opçao nao existe.");
