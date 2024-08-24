@@ -1,7 +1,8 @@
-import static java.lang.Integer.valueOf;
 import java.util.InputMismatchException;
 import java.util.Scanner;
+import utils.AgencyValidator;
 import utils.InputUtils;
+import utils.NumberAccUtils;
 import utils.ValidationUtils;
 
 public class ContaPoupanca {
@@ -22,8 +23,8 @@ public class ContaPoupanca {
         // Instead of using int and double
         // we use the wrapped classes to solve the null variables since int and double cannot be null.
         Scanner scanner = new Scanner(System.in);
-        Integer numberAcc = null;
-        Integer agency = null;
+        String numberAcc = null;
+        String agency = null;
         String name = null;
         Double balance = null;
 
@@ -36,16 +37,18 @@ public class ContaPoupanca {
             switch(choice) {
                 case 1 -> {
                     try {
-                        numberAcc = valueOf(InputUtils.getInput(scanner, "Digite o número da sua conta corrente: "));
-                    } catch (NumberFormatException e) {
-                        InputUtils.providedData("Inteiro, sem símbolos");
+                        String input = InputUtils.getInput(scanner, "Digite o número da sua conta corrente: ");
+                        numberAcc = NumberAccUtils.validateAndFormatNumberAcc(input);
+                    } catch (IllegalArgumentException e) {
+                        InputUtils.providedData("Inteiro e conter 9 dígitos");
                     }
                 }
                 case 2 -> { 
                     try {
-                        agency = Integer.valueOf(InputUtils.getInput(scanner, "Digite o número de sua agência: "));
-                    } catch (NumberFormatException e) {
-                        InputUtils.providedData("Inteiro");
+                        String input = InputUtils.getInput(scanner, "Digite o número de sua agência: ");
+                        agency = AgencyValidator.validateAgency(input);
+                    } catch (IllegalArgumentException e) {
+                        InputUtils.providedData("Inteiro e conter 9 dígitos");
                     }
                 }
                 case 3 -> {

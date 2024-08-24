@@ -24,7 +24,7 @@ public class ValidationUtils {
     }
 
     // Here we validate if all data was provided to proceed with the end of the user registration on its Savings Accounts
-    public static boolean validatedData(Integer numberAcc, Integer agency, String name, Double balance){
+    public static boolean validatedData(String numberAcc, String agency, String name, Double balance){
         return numberAcc != null && agency != null && name != null && balance != null;
     }
 }

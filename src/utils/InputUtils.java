@@ -10,7 +10,7 @@ public class InputUtils {
 
     public static String getInput(Scanner scanner, String prompt){
         System.out.println(prompt);
-        String input = scanner.nextLine();
+        var input = scanner.nextLine();
 
         System.out.println("Informaçao salva com sucesso: " + input + "!");
 
