@@ -1,8 +1,8 @@
 package utils;
 
-public class NumberAccUtils {
+public class NumberAccValidator {
     // Private constructor to prevent instantiation
-    private NumberAccUtils() {
+    private NumberAccValidator() {
         throw new UnsupportedOperationException("This is a utility class and cannot be instantiated");
     }
 

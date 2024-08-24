@@ -2,7 +2,7 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 import utils.AgencyValidator;
 import utils.InputUtils;
-import utils.NumberAccUtils;
+import utils.NumberAccValidator;
 import utils.ValidationUtils;
 
 public class ContaPoupanca {
@@ -38,7 +38,7 @@ public class ContaPoupanca {
                 case 1 -> {
                     try {
                         String input = InputUtils.getInput(scanner, "Digite o número da sua conta corrente: ");
-                        numberAcc = NumberAccUtils.validateAndFormatNumberAcc(input);
+                        numberAcc = NumberAccValidator.validateAndFormatNumberAcc(input);
                     } catch (IllegalArgumentException e) {
                         InputUtils.providedData("Inteiro e conter 9 dígitos");
                     }
@@ -48,7 +48,7 @@ public class ContaPoupanca {
                         String input = InputUtils.getInput(scanner, "Digite o número de sua agência: ");
                         agency = AgencyValidator.validateAgency(input);
                     } catch (IllegalArgumentException e) {
-                        InputUtils.providedData("Inteiro e conter 9 dígitos");
+                        InputUtils.providedData("Inteiro e conter 4 dígitos");
                     }
                 }
                 case 3 -> {

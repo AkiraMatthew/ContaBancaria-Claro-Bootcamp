@@ -6,9 +6,12 @@ public class AgencyValidator {
     }
 
     public static String validateAgency(String agency) {
-        if(agency.length() != 4)
+        // Clean the input to keep only digits
+        String cleanedAgency = agency.replaceAll("[^\\d]", "");
+
+        if(cleanedAgency.length() != 4)
             throw new IllegalArgumentException("O número da agência deve conter 4 dígitos");
 
-        return agency;
+        return cleanedAgency;
     }
 }
