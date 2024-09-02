@@ -1,9 +1,13 @@
+package com.bank.financial.model;
+
+import com.bank.financial.service.AgencyValidatorService;
+import com.bank.financial.service.ValidatorService;
+import com.bank.financial.utils.InputUtils;
+import com.bank.financial.utils.NumberAccValidator;
 import java.util.InputMismatchException;
 import java.util.Scanner;
-import utils.AgencyValidator;
-import utils.InputUtils;
-import utils.NumberAccValidator;
-import utils.ValidationUtils;
+
+
 
 public class ContaPoupanca {
 
@@ -46,7 +50,7 @@ public class ContaPoupanca {
                 case 2 -> { 
                     try {
                         String input = InputUtils.getInput(scanner, "Digite o número de sua agência: ");
-                        agency = AgencyValidator.validateAgency(input);
+                        agency = AgencyValidatorService.validateAgency(input);
                     } catch (IllegalArgumentException e) {
                         InputUtils.providedData("Inteiro e conter 4 dígitos");
                     }
@@ -54,7 +58,7 @@ public class ContaPoupanca {
                 case 3 -> {
                     try {
                         name = InputUtils.getInput(scanner, "Digite seu nome completo: ");
-                        ValidationUtils.validateName(name);
+                        ValidatorService.validateName(name);
                     } catch (InputMismatchException e) {
                         InputUtils.providedData("String");
                     }
@@ -67,7 +71,7 @@ public class ContaPoupanca {
                     }
                 }
                 case 5 -> { 
-                    if(ValidationUtils.validatedData(numberAcc, agency, name, balance)) {
+                    if(ValidatorService.validatedData(numberAcc, agency, name, balance)) {
                         System.out.println("----FINALIZANDO CADASTRO---");
                         System.out.println(
                             "Conta: " + numberAcc + "\n" +

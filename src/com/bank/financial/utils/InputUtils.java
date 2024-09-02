@@ -1,4 +1,4 @@
-package utils;
+package com.bank.financial.utils;
 import java.util.Scanner;
 
 public class InputUtils {

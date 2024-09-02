@@ -1,4 +1,4 @@
-package utils;
+package com.bank.financial.utils;
 
 public class NumberAccValidator {
     // Private constructor to prevent instantiation
