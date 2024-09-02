@@ -1,8 +1,8 @@
-package utils;
+package com.bank.financial.service;
 
-public class ValidationUtils {
+public class ValidatorService {
     // Private constructor to prevent instantiation
-    private ValidationUtils() {
+    private ValidatorService() {
         throw new UnsupportedOperationException("This is a utility class and cannot be instantiated");
     }
 
