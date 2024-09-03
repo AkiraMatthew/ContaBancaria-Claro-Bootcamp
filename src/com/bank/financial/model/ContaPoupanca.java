@@ -3,7 +3,7 @@ package com.bank.financial.model;
 import com.bank.financial.service.AgencyValidatorService;
 import com.bank.financial.service.ValidatorService;
 import com.bank.financial.utils.InputUtils;
-import com.bank.financial.utils.NumberAccValidator;
+
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -42,7 +42,7 @@ public class ContaPoupanca {
                 case 1 -> {
                     try {
                         String input = InputUtils.getInput(scanner, "Digite o número da sua conta corrente: ");
-                        numberAcc = NumberAccValidator.validateAndFormatNumberAcc(input);
+                        numberAcc = AgencyValidatorService.NumberAccValidator.validateAndFormatNumberAcc(input);
                     } catch (IllegalArgumentException e) {
                         InputUtils.providedData("Inteiro e conter 9 dígitos");
                     }
